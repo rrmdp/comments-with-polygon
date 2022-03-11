@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
 import * as React from "react";
 import { QueryClient, QueryClientProvider, QueryCache } from "react-query";
-import { ChakraProvider, Box, Heading } from "@chakra-ui/react";
+import { ChakraProvider, Box, Heading, Center,Text } from "@chakra-ui/react";
 import { Toaster, toast } from "react-hot-toast";
 import theme from "../theme";
+import { Provider as WagmiProvider } from "wagmi";
+import { provider } from "ethers";
+import Comments from "../components/Comments";
 
 // Create a react-query client
 const queryClient = new QueryClient({
@@ -21,16 +24,30 @@ const queryClient = new QueryClient({
   }),
 });
 
+
+
 const App: NextPage = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <Box p={8} maxW="600px" minW="320px" m="0 auto">
-          <Heading>Oops, no comments yet!</Heading>
-          <Toaster position="bottom-right" />
-        </Box>
-      </QueryClientProvider>
-    </ChakraProvider>
+    <WagmiProvider autoConnect provider={provider}>
+      <ChakraProvider theme={theme}>
+      <Center>
+        <Heading >
+            <Text
+            bgGradient='linear-gradient(to-l,#77c655 30%,#147eac 60%)'
+            bgClip='text'
+            fontSize='5xl'
+            fontWeight='extrabold'>Direct Bookings Forum
+            </Text>
+        </Heading>
+      </Center>
+        <QueryClientProvider client={queryClient}>
+          <Box p={8} maxW="600px" minW="320px" m="0 auto">            
+            <Comments topic="my-blog-post" />
+            <Toaster position="bottom-right" />
+          </Box>
+        </QueryClientProvider>
+      </ChakraProvider>
+    </WagmiProvider>
   );
 };
 
