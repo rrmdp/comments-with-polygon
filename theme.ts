@@ -17,7 +17,7 @@ const theme = extendTheme({
     },
   },
   colors: {
-    gray: {
+    /*gray: {
       50: "#FAFAFA",
       100: "#F5F5F5",
       200: "#E5E5E5",
@@ -28,9 +28,26 @@ const theme = extendTheme({
       700: "#404040",
       800: "#262626",
       900: "#171717",
+    },*/
+    green: {
+      50: "#F0FFF4",
+      100: "#C6F6D5",
+      200: "#9AE6B4",
+      300: "#68D391",
+      400: "#48BB78",
+      500: "#38A169",
+      600: "#2F855A",
+      700: "#276749",
+      800: "#22543D",
+      900: "#1C4532",
     },
   },
   components: {
+    Heading: {
+      colorScheme: {
+        color: "red",
+      },
+    },
     Avatar: {
       baseStyle: {
         container: {
