@@ -2,6 +2,7 @@ import * as React from "react";
 import { Box, Spinner, Stack, Center } from "@chakra-ui/react";
 import useDBForum from "../hooks/useDBForum";
 import Comment from "./Comment";
+import CommentEditor from "./CommentEditor";
 
 interface CommentsProps {
   topic: string;
@@ -23,8 +24,10 @@ const Comments: React.FunctionComponent<CommentsProps> = ({ topic }) => {
         {query.data?.map((comment) => (
           <Box key={comment.id} bg="whiteAlpha.100" rounded="2xl" p={3}>
             <Comment key={comment.id} comment={comment} />
+            
           </Box>
         ))}
+        {query.isFetched && <CommentEditor topic={topic} />}
       </Stack>
     </Box>
   );
