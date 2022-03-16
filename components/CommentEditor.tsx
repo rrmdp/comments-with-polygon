@@ -37,7 +37,7 @@ const CommentEditor: React.FunctionComponent<CommentEditorProps> = ({
       </HStack>
       <AuthButton
         size="sm"
-        colorScheme="pink"
+        colorScheme="cyan"
         alignSelf="flex-end"
         onClick={() => {
           mutation
@@ -49,7 +49,7 @@ const CommentEditor: React.FunctionComponent<CommentEditorProps> = ({
         }}
         isLoading={mutation.isLoading}
       >
-        Submit
+        Post Message
       </AuthButton>
     </Stack>
   );
