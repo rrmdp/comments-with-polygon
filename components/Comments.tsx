@@ -3,6 +3,7 @@ import { Box, Spinner, Stack, Center } from "@chakra-ui/react";
 import useDBForum from "../hooks/useDBForum";
 import Comment from "./Comment";
 import CommentEditor from "./CommentEditor";
+import useEvents from "../hooks/useEvents";
 
 interface CommentsProps {
   topic: string;
@@ -12,7 +13,7 @@ const Comments: React.FunctionComponent<CommentsProps> = ({ topic }) => {
   const query = useDBForum({ topic });
 
   //return <Box as="pre">{JSON.stringify(query.data, null, 2)}</Box>;
-
+  useEvents({ topic });
   return (
     <Box>
       {query.isLoading && (
