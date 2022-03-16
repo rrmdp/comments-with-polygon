@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, ButtonProps } from "@chakra-ui/react";
+import { Button, ButtonProps,ButtonGroup  } from "@chakra-ui/react";
 import { useAccount, useConnect } from "wagmi";
 import toast from "react-hot-toast";
 
@@ -18,19 +18,27 @@ const AuthButton: React.FunctionComponent<AuthButtonProps> = (props) => {
   // If not authenticated, require sign-in
   if (!accountQuery.data?.address) {
     return (
-      <Button
+      <Button  
+      size='lg' 
+      colorScheme="cyan"
+      bgGradient='linear-gradient(to-l,#a200d6 ,#ff6fdf )'
+      p='25px'
+            fontSize='2xl'
         {...props}
         onClick={() => {
           connect(connectQuery.data.connectors[0]);
         }}
       >
-        Sign In
+        Connect Wallet
       </Button>
     );
   }
 
   // If authenticated, show button as usual
-  return <Button {...props}>{props.children}</Button>;
+  return <Button size='lg' p='25px'
+    
+  bgGradient='linear-gradient(to-l,#a200d6 ,#ff6fdf )'  
+  fontSize='2xl' {...props}>{props.children}</Button>;
 };
 
 export default AuthButton;
