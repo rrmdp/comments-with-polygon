@@ -30,7 +30,7 @@ const useDBForumContract = () => {
   // We also pass in the signer if there is a signed in wallet, or if there's
   // no signed in wallet then we'll pass in the connected provider.
   const contract = wagmi.useContract({
-    addressOrName: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    addressOrName: "0xe137315fa2823A284fEae67b46b3A93c7d4302B9",
     contractInterface: DBForumContract.abi,
     signerOrProvider: signer.data || provider,
   });
