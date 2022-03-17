@@ -5,8 +5,12 @@ import { ChakraProvider, Box, Heading, Center,Text } from "@chakra-ui/react";
 import { Toaster, toast } from "react-hot-toast";
 import theme from "../theme";
 import { Provider as WagmiProvider } from "wagmi";
-import { provider } from "ethers";
+import { provider, providers } from "ethers";
 import Comments from "../components/Comments";
+
+const provider = providers.getDefaultProvider(
+  "https://rpc-mumbai.maticvigil.com"
+);
 
 // Create a react-query client
 const queryClient = new QueryClient({
