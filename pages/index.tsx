@@ -5,7 +5,7 @@ import { ChakraProvider, Box, Heading, Center,Text } from "@chakra-ui/react";
 import { Toaster, toast } from "react-hot-toast";
 import theme from "../theme";
 import { Provider as WagmiProvider } from "wagmi";
-import { provider, providers } from "ethers";
+import { providers } from "ethers";
 import Comments from "../components/Comments";
 
 const provider = providers.getDefaultProvider(
