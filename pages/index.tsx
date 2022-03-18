@@ -29,7 +29,6 @@ const queryClient = new QueryClient({
 });
 
 
-
 const App: NextPage = () => {
   return (
     <WagmiProvider autoConnect provider={provider}>
